@@ -1,0 +1,25 @@
+name: Scrapy Web Scraper
+
+on:
+  schedule:
+    - cron: '0 8 * * *'  # Esegue ogni giorno alle 08:00 UTC
+  workflow_dispatch: # Permette di eseguire manualmente il workflow
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: pip install scrapy
+
+      - name: Run Scraper
+        run: python scraper.py
