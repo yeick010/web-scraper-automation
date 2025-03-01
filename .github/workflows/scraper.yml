@@ -19,7 +19,7 @@ jobs:
           python-version: 3.9
 
       - name: Install dependencies
-        run: pip install scrapy
+        run: pip install scrapy pandas
 
       - name: Run Scraper
         run: python scraper.py
